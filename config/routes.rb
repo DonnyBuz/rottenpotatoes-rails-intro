@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :movies
+
+  #match '/:sort' => 'movies#sort_title', :as => :sort_title
+  
   
   # Example resource route with options:
   #   resources :products do
