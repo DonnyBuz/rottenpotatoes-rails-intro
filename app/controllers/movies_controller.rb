@@ -14,13 +14,14 @@ class MoviesController < ApplicationController
     if params[:ratings] != session[:ratings] || params[:sort] != session[:sort]
       if params[:commit]
         session[:ratings] = params[:ratings]
+      elsif params[:sort] == session[:sort]
+        session[:sort] = nil
       elsif params[:sort]
         session[:sort] = params[:sort]
       end
       flash.keep
       redirect_to(movies_path(:ratings => session[:ratings],:sort => session[:sort]))
     else
-      
       @all_ratings = Movie.all_ratings
       sort = params[:sort]
       @sort = sort
