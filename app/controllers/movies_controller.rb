@@ -11,11 +11,11 @@ class MoviesController < ApplicationController
   end
 
   def index
+    
+    
     if params[:ratings] != session[:ratings] || params[:sort] != session[:sort]
       if params[:commit]
         session[:ratings] = params[:ratings]
-      elsif params[:sort] == session[:sort]
-        session[:sort] = nil
       elsif params[:sort]
         session[:sort] = params[:sort]
       end
